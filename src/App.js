@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import uuid from 'react-uuid';
 import Main from './components/Main';
 import Sidebar from './components/Sidebar';
 import { NoteWrapper, Wrapper } from './globalStyles';
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 const App = () => {
   // wszystkie notatki
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useLocalStorage('notes', []);
   // wybieranie aktywnej notatki onKK
   const [activeNote, setActiveNote] = useState(false);
 
